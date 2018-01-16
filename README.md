@@ -58,7 +58,8 @@ resource "aws_instance" "example" {
 
 Into the resource section you add the local CURL command, however you can't just paste the one you copied from xMatters as it needs to be a single line of code and have the quotes escaped etc:
 
-```provisioner "local-exec" { command = "curl --request POST --header 'Content-Type: application/json' --data '{\"properties\": {\"message\": \"The message you want to send\",\"subject\": \"The message subject\"},\"recipients\":[\"xMattersusername orgroupname\"]}' \"https://mydomain.xmatters.com/api/integration/1/functions/a1d8e257-aaaa-bbbb-cccc-fd5df7f48606/triggers?apiKey=myxMattersapikey\"" }
+```
+provisioner "local-exec" { command = "curl --request POST --header 'Content-Type: application/json' --data '{\"properties\": {\"message\": \"The message you want to send\",\"subject\": \"The message subject\"},\"recipients\":[\"xMattersusername orgroupname\"]}' \"https://mydomain.xmatters.com/api/integration/1/functions/a1d8e257-aaaa-bbbb-cccc-fd5df7f48606/triggers?apiKey=myxMattersapikey\"" }
 ```
 
 So you want to ensure the message text, subject,recipient(s) and URL (including the API key) are all correct, be especially careful not to delete the escaping backslashes.
