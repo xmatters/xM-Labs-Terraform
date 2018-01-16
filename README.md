@@ -62,7 +62,7 @@ Into the resource section you add the local CURL command, however you can't just
 provisioner "local-exec" { command = "curl --request POST --header 'Content-Type: application/json' --data '{\"properties\": {\"message\": \"The message you want to send\",\"subject\": \"The message subject\"},\"recipients\":[\"xMattersusername orgroupname\"]}' \"https://mydomain.xmatters.com/api/integration/1/functions/a1d8e257-aaaa-bbbb-cccc-fd5df7f48606/triggers?apiKey=myxMattersapikey\"" }
 ```
 
-So you want to ensure the message text, subject,recipient(s) and URL (including the API key, the one you copied from the Integration Builder) are all correct, be especially careful not to delete the escaping backslashes.
+So you want to ensure the message text, subject,recipient(s) and URL (the one you copied from the Integration Builder, including the API key) are all correct, be especially careful not to delete the escaping backslashes.
 
 So in my example this will look like:
 
