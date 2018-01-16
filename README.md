@@ -7,7 +7,7 @@ This is a simple one-way integration to enable you to fire notifications and ale
 I call it an integration but it's more the methodology to enable you to join the two systems together.
 
 
-[Watch the video](https://www.youtube.com/watch?v=5jYkxs63Qjo)
+[Watch the video](https://youtu.be/AcfP70tdhXE)
 
 
 # How it works
