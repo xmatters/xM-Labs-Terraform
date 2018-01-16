@@ -41,7 +41,7 @@ The information on what's sent and to whom etc is all put into the Terraform con
 
 ## The set up (Terraform)
 
-You Terraform configuration (script) will look something like this:
+Your Terraform configuration (script) will look something like this:
 
 ```provider "aws" { 
 	access_key = "myaccesskey" 
