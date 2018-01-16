@@ -1,7 +1,7 @@
 
 ---
 
-# Simple, One-way Integration to Notify From Terraform (OSSS, the Open Source version)
+# Simple, One-way Integration To Send xMatters Notifications From Terraform (OSSS, the Open Source version)
 This is a simple one-way integration to enable you to fire notifications and alerts from within your Terraform scripts, for example when a new EC2 instance is successfully deployed.
 
 I call it an integration but it's more the methodology to enable you to join the two systems together.
