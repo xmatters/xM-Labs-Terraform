@@ -41,17 +41,45 @@ The information on what's sent and to whom etc is all put into the Terraform con
 
 ## The set up (Terraform)
 
-`provider "aws" { 
-`	access_key = "myaccesskey" 
-`	secret_key = "mysecretkey" 
-`	region = "us-east-1" 
-`} 
+You Terraform configuration (script) will look something like this:
 
-`resource "aws_instance" "example" { 
-`	ami = "ami-c998b6b2" 
-`	instance_type = "t2.micro" 
+```provider "aws" { 
+	access_key = "myaccesskey" 
+	secret_key = "mysecretkey" 
+	region = "us-east-1" 
+} 
+
+resource "aws_instance" "example" { 
+	ami = "ami-c998b6b2" 
+	instance_type = "t2.micro" 
 	
-provisioner "local-exec" { command = "curl --request POST --header 'Content-Type: application/json' --data '{\"properties\": {\"message\": \"The message you want to send\",\"subject\": \"The message subject\"},\"recipients\":[\"xMattersusername orgroupname\"]}' \"https://mydomain.xmatters.com/api/integration/1/functions/a1d8e257-aaaa-bbbb-cccc-fd5df7f48606/triggers?apiKey=myxMattersapikey\"" } }`
+ }```
+
+Into the resource section you add the local CURL command, however you can't just paste the one you copied from xMatters as it needs to be a single line of code and have the quotes escaped etc:
+
+```provisioner "local-exec" { command = "curl --request POST --header 'Content-Type: application/json' --data '{\"properties\": {\"message\": \"The message you want to send\",\"subject\": \"The message subject\"},\"recipients\":[\"xMattersusername orgroupname\"]}' \"https://mydomain.xmatters.com/api/integration/1/functions/a1d8e257-aaaa-bbbb-cccc-fd5df7f48606/triggers?apiKey=myxMattersapikey\"" }```
+
+So you want to ensure the message text, subject,recipient(s) and URL (including the API key) are all correct, be especially careful not to delete the escaping backslashes.
+
+So in my example this will look like:
+
+```provider "aws" { 
+	access_key = "myaccesskey" 
+	secret_key = "mysecretkey" 
+	region = "us-east-1" 
+} 
+
+resource "aws_instance" "example" { 
+	ami = "ami-c998b6b2" 
+	instance_type = "t2.micro" 
+
+provisioner "local-exec" { command = "curl --request POST --header 'Content-Type: application/json' --data '{\"properties\": {\"message\": \"The message you want to send\",\"subject\": \"The message subject\"},\"recipients\":[\"xMattersusername orgroupname\"]}' \"https://mydomain.xmatters.com/api/integration/1/functions/a1d8e257-aaaa-bbbb-cccc-fd5df7f48606/triggers?apiKey=myxMattersapikey\"" }
+	
+ }``` 
+
+Again, note that provisioner line is a single line right up to the `apikey\"" }`
+
+When you run your configuration (terraform apply) it should trigger xMatters to send push notifications, SMSs and emails all automatically!
 
 
 
