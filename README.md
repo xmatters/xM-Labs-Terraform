@@ -37,7 +37,7 @@ The information on what's sent and to whom etc is all put into the Terraform con
 
 1. Install the Terraform communication plan attached.
 2. Edit the Terraform Message form, remove voice call (I haven't set much of a format for this, you could spruce it up yourself).  You don't need a recipient on this one, that will be passed though by the Terraform script. Set to Web Service only.
-3. Head into Integration Builder and find the Terraform Incoming inbound integration script. Click on View Instructions at the bottom of the page where you edit the incoming integration and copy the CURL command.
+3. Head into Integration Builder and find the Terraform Incoming inbound integration script and copy the URL for triggering the integration. 
 
 ## The set up (Terraform)
 
@@ -56,13 +56,13 @@ resource "aws_instance" "example" {
  }
  ```
 
-Into the resource section you add the local CURL command, however you can't just paste the one you copied from xMatters as it needs to be a single line of code and have the quotes escaped etc:
+Into the resource section you add the local CURL command, however you can't just paste the one from xMatters as it needs to be a single line of code and have the quotes escaped etc, like this:
 
 ```
 provisioner "local-exec" { command = "curl --request POST --header 'Content-Type: application/json' --data '{\"properties\": {\"message\": \"The message you want to send\",\"subject\": \"The message subject\"},\"recipients\":[\"xMattersusername orgroupname\"]}' \"https://mydomain.xmatters.com/api/integration/1/functions/a1d8e257-aaaa-bbbb-cccc-fd5df7f48606/triggers?apiKey=myxMattersapikey\"" }
 ```
 
-So you want to ensure the message text, subject,recipient(s) and URL (including the API key) are all correct, be especially careful not to delete the escaping backslashes.
+So you want to ensure the message text, subject,recipient(s) and URL (including the API key, the one you copied from the Integration Builder) are all correct, be especially careful not to delete the escaping backslashes.
 
 So in my example this will look like:
 
