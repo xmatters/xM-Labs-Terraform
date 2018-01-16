@@ -35,7 +35,7 @@ The information on what's sent and to whom etc is all put into the Terraform con
 ## The set up (xMatters)
 
 1. Install the Terraform communication plan attached.
-2. Edit the Terraform Message form, remove voice call (I haven't set much of a format for this, you could spruce it up yourself).  You don't need a recipient on this one, that will be passed though by the Terraform script. Set to Web Service only.
+2. Edit the Terraform Message form, remove voice call (I haven't set much of a format for this, you could spruce it up yourself).  You don't need a recipient on this one, that will be passed through by the Terraform script. Set to Web Service only.
 3. Head into Integration Builder and find the Terraform Incoming inbound integration script and copy the URL for triggering the integration. 
 
 ## The set up (Terraform)
