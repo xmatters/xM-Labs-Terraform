@@ -43,7 +43,8 @@ The information on what's sent and to whom etc is all put into the Terraform con
 
 Your Terraform configuration (script) will look something like this:
 
-```provider "aws" { 
+```
+provider "aws" { 
 	access_key = "myaccesskey" 
 	secret_key = "mysecretkey" 
 	region = "us-east-1" 
@@ -66,7 +67,8 @@ So you want to ensure the message text, subject,recipient(s) and URL (the one yo
 
 So in my example this will look like:
 
-```provider "aws" { 
+```
+provider "aws" { 
 	access_key = "myaccesskey" 
 	secret_key = "mysecretkey" 
 	region = "us-east-1" 
