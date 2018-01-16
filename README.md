@@ -21,8 +21,7 @@ The information on what's sent and to whom etc is all put into the Terraform con
 # Pre-Requisites
 
 * Terraform installed on a server
-* An xMatters account.
-* Developer access.
+* An xMatters account
 
 
 # Files
