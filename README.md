@@ -4,16 +4,18 @@
 # Simple, One-way Integration To Send xMatters Notifications From Terraform (OSSS, the Open Source version)
 This is a simple one-way integration to enable you to fire notifications and alerts from within your Terraform scripts, for example when a new EC2 instance is successfully deployed.
 
-<kbd>
-<a href="https://support.xmatters.com/hc/en-us/community/topics">
-   <img src="https://github.com/xmatters/xMatters-Labs/raw/master/media/disclaimer.png">
-</a>
-</kbd>
 
 I call it an integration but it's more the methodology to enable you to join the two systems together.
 
 
 [Watch the video](https://youtu.be/AcfP70tdhXE)
+
+
+<kbd>
+<a href="https://support.xmatters.com/hc/en-us/community/topics">
+   <img src="https://github.com/xmatters/xMatters-Labs/raw/master/media/disclaimer.png">
+</a>
+</kbd>
 
 
 # How it works
